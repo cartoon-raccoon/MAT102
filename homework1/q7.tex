@@ -1,0 +1,82 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+% convenience definitions for real numbers and integers.
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\open}[1]{\left(#1\right)}
+\newcommand{\set}[2]{\left\{#1 \:\colon\: #2\right\}}
+
+% i like the black square better.
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q7)}
+\begin{theorem}
+    One way to prove that $S = T$ is to prove that $S \subseteq T$ and $T \subseteq S$.
+
+    Let
+    \begin{align*}
+        S & = \set{y = \R}{y = \frac{x}{x + 1}\;\text{for some}\;x \in \R \setminus \{-1\}}\\
+        T & = \open{-\infty, 1} \cup \open{1, \infty} = \R \setminus \{1\}
+    \end{align*}
+    Use this strategy to prove that S = T.
+\end{theorem}
+
+\begin{proof}
+    We observe that $S$ is the range of a function $\tfrac{x}{x + 1}$ which has the domain
+    $\R \setminus \{-1\}$.
+    Let $y \in S$. It follows that:
+    \[
+        y = \frac{x}{x + 1} \text{ for some } x \in \R \setminus \{-1\}
+    \]
+
+    Therefore, we can work our way backwards through the function to get the element from
+    the domain that produced each value of $y$ in $S$.
+
+    Thus:
+    \begin{align*}
+        y & = \frac{x}{x + 1}\\
+        xy + y & = x\\
+        y & = x - xy\\
+        y & = x(1 - y)\\
+        \frac{y}{1 - y} & = x
+    \end{align*}  
+
+    From the definition of $S$ and $T$,
+    \[
+        y \in \R \text{ and } y \neq 1 \implies y \in \R \setminus \{1\} \implies y \in T
+    \]
+    From which we can conclude $S \subseteq T$.
+
+    Now, we have to prove that $T \subseteq S$.
+
+    Similarly, we let $x \in T$. Since $1 \notin T$, we can define $T$ as the domain of
+    a function that is defined everywhere except $1$.
+    \begin{align*} 
+        y = \frac{x}{1 - x} \text{ for some } x \in T
+    \end{align*}
+
+    It follows that:
+    \begin{align*}
+        y - xy & = x\\
+        y & = x + xy\\
+        \frac{y}{y + 1} & = x
+    \end{align*}
+    For all $x \in T \implies x \in S$, as $S$ is the image of the the similar function $\tfrac{x}{x + 1}$,
+    thereby implying $T \subseteq S$.
+
+    Since $S \subseteq T$ and $T \subseteq S$, we can conclude that $S = T$ by mutual
+    subset inclusion, as required.
+\end{proof}
+\end{document}

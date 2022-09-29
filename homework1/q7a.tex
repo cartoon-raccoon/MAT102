@@ -1,0 +1,84 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+% convenience definitions for real numbers and integers.
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\open}[1]{\left(#1\right)}
+\newcommand{\set}[2]{\left\{#1 \:\colon\: #2\right\}}
+
+% i like the black square better.
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q7)}
+\begin{theorem}
+    One way to prove that $S = T$ is to prove that $S \subseteq T$ and $T \subseteq S$.
+
+    Let
+    \begin{align*}
+        S & = \set{y = \R}{y = \frac{x}{x = 1}\;\text{for some}\;y \in \R \setminus \{-1\}}\\
+        T & = \open{-\infty, 1} \cup \open{1, \infty} = \R \setminus \{1\}
+    \end{align*}
+    Use this strategy to prove that S = T.
+\end{theorem}
+
+\begin{proof}
+    We observe that set $S$ is the image of a function $y = \tfrac{x}{x + 1}$ for the range
+    of $x \in \R \setminus \{-1\}$. It thus follows that we can look at an arbitrary value
+    in $S$, and work backwards through the given function to see its corresponding element
+    in the range.
+
+    Therefore, we let $a \in S$. It follows that:
+    \[
+    \begin{gathered}
+        \begin{aligned}
+            y & = \frac{x}{x + 1}\\
+            \implies ax + a & = x\\
+            \implies x - ax & = a\\
+            \implies x(1-a) & = a\\
+            \implies x & = \frac{a}{1 -a}
+        \end{aligned}
+    \end{gathered}
+    \]
+    We can see that the image $x$ of an element $a$ in set $S$ is defined by the function
+    $x = \tfrac{a}{1 - a}$. In other words, $S$ can be redefined as the range of this 
+    function. From this, we can see that the image of this function is undefined for 
+    $a = 1$ and defined everywhere else. Thus, its range is $\R \setminus \{1\}$, 
+    implying that $S \subseteq T$ where $T$ is defined as every real except $1$.
+
+    Now, we have to prove that $T \subseteq S$.
+
+    Similarly, we let $b \in T$. Since $1 \notin T$, we can construct $T$ as the range of
+    a function that is defined everywhere except $1$. We can do this by defining the function
+    as a quotient of two numbers $p$ and $1 - b$, where $p$ is an arbitrary real number:
+    \begin{align*} 
+        T = \{b \mid \frac{p}{1-b} \in \R \text{ for some } p \in \R\}
+    \end{align*}
+    This states that $b$ is an element of $T$ if the function $\tfrac{p}{1-b}$ is defined for
+    that value of $b$.
+    It does not matter what the value of $p$ is, as $\tfrac{p}{1-b}$ will always be undefined 
+    where $b = 1$ and defined everywhere else. Since the value of $p$ does not matter, we can 
+    let it be $b$.
+
+    Thus, $T$ is the range for a function $\tfrac{b}{1 - b}$, the same as $S$ which is the range
+    for a function $\tfrac{a}{1 - a}$, similarly undefined where $a = 1$. Thus, for an 
+    arbitrary element $p$:
+    \begin{align*}
+        p \in S \text{ for all } p \in T \Rightarrow T \subseteq S
+    \end{align*}
+
+    Since $S \subseteq T$ and $T \subseteq S$, we can conclude that $S = T$ by mutual
+    subset inclusion, as required.
+\end{proof}
+\end{document}

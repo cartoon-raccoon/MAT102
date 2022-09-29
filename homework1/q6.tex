@@ -1,0 +1,54 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+% convenience definitions for real numbers and integers.
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\open}[1]{\left(#1\right)}
+\newcommand{\set}[2]{\left\{#1 \:\colon\: #2\right\}}
+
+% i like the black square better.
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+\noindent\textbf{(Q6)}
+\begin{theorem}
+    Let $S,T$ be any subsets of a universal set $U$.
+    Prove that $(S \cap T)^c = S^c \cup T^c$.
+\end{theorem}
+
+\newcommand{\A}{(S \cap T)^c}
+\newcommand{\B}{S^c \cup T^c}
+\newcommand{\sse}{\subseteq}
+
+\begin{proof}
+    We can prove these two sets are equal by mutual subset inclusion:
+    \[
+        \A = \B \text { iff } \A \sse \B \text{ and } \B \sse \A
+    \]
+
+    Let $x \in \A$. This implies $x \notin (S \cap T)$, or $x \notin S$ and $T$.
+    From this, we can infer $x \in S^c$ or $T^c$ which can be written as $\B$. 
+    Therefore,
+    \[
+        x \in \B \implies \A \sse \B
+    \]
+
+    Now, let $x \in \B$. This implies $x \notin S$ or $T$. From this, we can infer
+    $x \in S^c$ and $T^c$, which can be written as $\A$. Therefore,
+    \[
+        x \in \A \implies \B \sse \A
+    \]
+
+    Since $\A \sse \B$ and $\B \sse \A$, we can conclude $\A = \B$.
+\end{proof}
+\end{document}

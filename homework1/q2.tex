@@ -1,0 +1,62 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+\noindent\textbf{(Q2)}
+
+\noindent\textit{(a)}
+\begin{proof}
+    Using \textbf{Definition 1.3.1}, the absolute value of a real number $x$ is:
+    \[
+        |x| = \begin{cases}
+            x & \text{ if } x \geq 0\\
+            -x & \text{ if } x < 0
+        \end{cases}
+    \]
+
+    In order to prove the theorem, we need to consider cases where $b > 0$ and $b < 0$.
+
+    For cases where $b > 0$, $\tfrac{1}{b} \in (0, \infty)$.
+
+    \[
+        \left|\frac{1}{b}\right| = \frac{1}{b} = \frac{1}{|b|}
+    \]
+    
+    For cases where $b < 0$, $\tfrac{1}{b} \in (-\infty, 0)$.
+
+    \[
+        \left|\frac{1}{b}\right| = -\frac{1}{b} = \frac{1}{-b} = \frac{1}{|b|}
+    \]
+
+    Since for both cases, $\left|\frac{1}{b}\right| = \frac{1}{|b|}$, this holds true for
+    all $b \in \R$.
+\end{proof}
+
+\noindent\textit{(b)}
+\begin{proof}
+    By \textbf{Proposition 1.3.2}, $|xy| = |x| \cdot |y|$.
+
+    Let $x = a$, $y = \tfrac{1}{b}$.
+
+    By \textit{(a)} we know that $\tfrac{1}{|b|} = \left|\tfrac{1}{b}\right|$ for any
+    non-zero real number $b$. Therefore:
+    \begin{align*}
+        \frac{|a|}{|b|} 
+        = |a| \cdot \frac{1}{|b|}
+        = |a| \cdot \left|\frac{1}{b}\right|
+        = \left|a \cdot \frac{1}{b} \right|
+        = \left|\frac{a}{b}\right|
+    \end{align*}
+\end{proof}
+
+\end{document}

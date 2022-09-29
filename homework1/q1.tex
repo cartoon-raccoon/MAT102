@@ -1,0 +1,46 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q1)}
+\begin{theorem}
+    Prove that if $|x| < 10$, then $|2x^3 - 2x + 2| < 2022$.
+\end{theorem}
+
+\begin{proof}
+    We know the triangle inequality to be:
+    \begin{quote}
+        \noindent For any $x,y \in \R$, we have
+        \[
+            |x + y| \leq |x| + |y|
+        \]
+    \end{quote}
+
+    Knowing that $|x| < 10$, we can do the following:
+    \begin{align*}
+        |x| & < 10\\
+        2|x|^3 = |2x^3| & < 2000\\
+        |2x^3| + |-2x| & < 2000 + 20 = 2020\\
+        |2x^3| + |-2x| + |2| & < 2000 + 20 + 2 = 2022
+    \end{align*}
+
+    By the triangle inequality,
+    \begin{align*}
+        |2x^3 - 2x + 2| & \leq |2x^3| + |-2x| + |2| < 2022\\
+        & \implies |2x^3 - 2x + 2| < 2022
+    \end{align*}
+    
+\end{proof}
+
+\end{document}

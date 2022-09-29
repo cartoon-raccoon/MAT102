@@ -1,0 +1,71 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+% convenience definitions for real numbers and integers.
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+
+\newcommand{\open}[1]{\left(#1\right)}
+\newcommand{\set}[2]{\left\{#1 \:\colon\: #2\right\}}
+
+% i like the black square better.
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+\noindent\textbf{(Q5)}
+\begin{theorem}
+    For all sets $A,B,C$, we have $A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$.
+\end{theorem}
+
+% so i don't have to keep writing this shit out
+\newcommand{\A}{A \cup (B \cap C)}
+\newcommand{\B}{(A \cup B) \cap (A \cup C)}
+\newcommand{\sse}{\subseteq}
+
+This theorem is true, and the proof is below.
+\begin{proof}
+    For the sake of clarity, we label the two sets as follows:
+    \begin{align}
+        & \A\\
+        & \B
+    \end{align}
+    We can prove these two sets are equal through mutual subset inclusion. That is,
+    \[
+        (1) = (2) \text{ iff } (1) \sse (2) \text{ and } (2) \sse (1)
+    \]
+
+    Let $x \in \B \quad (2)$.
+
+    This implies $x \in A$ or $B$ and $x \in A$ or $C$. From this we can see that
+    $x$ is in both $B$ and $C$ or $x$ is in $A$. This can be expressed as
+
+    \[
+        x \in \A \quad (1)
+    \]
+
+    Thus, $(2) \sse (1)$.
+
+    Now, let $x \in \A \quad (1)$.
+    This can be expressed as $x \in A$ or $x \in B$ and $C$. From this, we can
+    see that $x \in A$ or $x \in B$ and $x \in A$ or $x \in C$. In set notation:
+
+    \[
+        x \in \B \quad (2)
+    \]
+
+    Thus, $(1) \sse (2)$.
+
+    Since $(1) \sse (2)$ and $(2) \sse (1)$, we can conclude $(1) = (2)$, or
+    \[
+        \A = \B
+    \]
+\end{proof}
+\end{document}
