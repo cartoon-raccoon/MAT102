@@ -1,5 +1,5 @@
 **/*.synctex.gz
-**/*.pdf
+# **/*.pdf
 **/*.aux
 **/*.fls
 **/*.fdb_latexmk
