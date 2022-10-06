@@ -1,0 +1,38 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q4)}
+
+\begin{theorem}
+    Let $\F$ be a field. Let $a,b \in \F$.
+
+    Prove that if $a \cdot b = 0$, then either $a$ or $b = 0$.
+\end{theorem}
+
+\begin{proof}
+    In order to prove this, we can consider a few cases:
+
+    $a = 0$: This case is trivial.
+
+    $a \neq 0$: By Axiom 4, $a \neq 0 \implies a^{-1} \in \F$. It follows that:
+    \begin{align*}
+        a^{-1}(ab) & = 0 \text{ by Claim 2.3.2}\\
+        \implies (a^{-1} \cdot a) \cdot b & = b = 0
+    \end{align*}
+\end{proof}
+
+\end{document}

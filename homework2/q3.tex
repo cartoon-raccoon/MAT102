@@ -1,0 +1,77 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\F}{\mathbb{F}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q3)}
+
+\begin{theorem}
+    Let $\F = \{1, 0, a, b\}$ be a field with 4 distinct elements.
+
+    Given that $ab = 1$, prove that $a^2 = b$.
+\end{theorem}
+
+\begin{proof}
+    We observe that by the Multiplicative Inverse Axiom, $a$ and $b$ are reciprocals
+    of each other. Thus, it follows that:
+
+    \[
+        ab = 1 \implies b = a^{-1}
+    \]
+
+    We also observe that $a^2$ is simply $a \cdot a$.
+
+    We can prove this theorem by a process of elimination. We try all possible values
+    of $a \cdot a$, and eliminate those that violate the the definition of a field
+    or its axioms.
+
+    First we consider $a \cdot a = 0$. It follows that:
+
+    \[
+        a^{-1} \cdot a \cdot a = 0 \cdot a^{-1} \implies a = 0
+    \]
+
+    Which is not allowed, as $a$ and $0$ have to be distinct elements of $\F$.
+
+    Next, considering $a \cdot a = a$, it again follows:
+
+    \begin{align*}
+        a \cdot a & = a \\
+        \implies a^{-1} \cdot a \cdot a & = a \cdot a^{-1}\\
+        \implies a & = 1
+    \end{align*}
+    Which is also not allowed for the same reason.
+
+    Next, considering $a \cdot a = 1$, it follows:
+    \begin{align*}
+        a \cdot a & = 1\\
+        \implies a^{-1} \cdot a \cdot a & = 1 \cdot a^{-1}\\
+        \implies a = a^{-1} & = b
+    \end{align*}
+    Which is also not allowed, again for the same reason.
+
+    This leaves $a \cdot a = b$ as the final option, so it has to be correct.
+
+    To confirm this, we can subject this to the same process:
+
+    \begin{align*}
+        a \cdot a & = b\\
+        \implies a^{-1} \cdot a \cdot a & = a^{-1} \cdot b\\
+        \implies a & = b \cdot b = b^{2}
+    \end{align*}
+
+    Since $b$ is a distinct element in $\F$, this holds under the definition of a field.
+
+\end{proof}
+
+\end{document}

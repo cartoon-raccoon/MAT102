@@ -1,0 +1,74 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+
+\newcommand{\red}[1]{\textcolor{red}{#1}}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q5)}
+
+\noindent(a)
+
+These are the addition and multiplication tables for the given field $\F$.
+
+Entries in \red{red} are entries that were pre-populated by the question.
+
+The addition table is as follows: \hfill\break
+
+\begin{tabular}{ |m{1cm} | m{1cm} | m{1cm} | m{1cm}|}
+    \hline
+    + & 0 & 1 & $x$\\
+    \hline
+    0 & 0 & 1 & $x$\\
+    \hline
+    1 & 1 & \red{$x$} & 0\\
+    \hline
+    $x$ & $x$ & 0 & \red{1}\\
+    \hline
+\end{tabular}
+\hfill\break
+
+The first row and first column were filled in as such to ensure Axiom 3 was 
+fulfilled, specifically the existence of the additive identity. The remaining
+zeroes were  filled in as such to ensure that Axiom 4 was fulfilled
+(existence of negatives).
+
+The multiplication table is as follows: \hfill\break
+
+\begin{tabular}{ |m{1cm} | m{1cm} | m{1cm} | m{1cm}|}
+    \hline
+    $\cdot$ & 0 & 1 & $x$\\
+    \hline
+    0 & 0 & 0 & 0\\
+    \hline
+    1 & 0 & 1 & \red{$x$}\\
+    \hline
+    $x$ & 0 & \red{$x$} & 1\\
+    \hline
+\end{tabular}
+\hfill\break
+
+The first row and first column were filled in as such by proof of Claim 2.3.2.
+
+The remaining two ones were filled in as such to ensure Axiom 4 was fulfilled
+(existence of reciprocals).
+
+(b)
+Following the addition and multiplication tables:
+\begin{align*}
+    x^2 = x \cdot x & = 1\\
+    1 + x & = 0\\
+    0 + 1 & = 1
+\end{align*}
+
+\end{document}

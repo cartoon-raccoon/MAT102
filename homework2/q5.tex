@@ -1,0 +1,36 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\F}{\mathbb{F}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q5)}
+
+\begin{theorem}
+    Let $\F$ be a field. Suppose that $1 + 1 + 1 = 0$.
+
+    Prove that for all $x \in \F$, we have $x + x + x = 0$.
+\end{theorem}
+
+\begin{proof}
+    
+    We can express $1 + 1 + 1$ as $1 + (1 + 1)$.
+
+    By Axiom 5, 
+    \[
+        x(1 + (1 + 1)) = x + x(1 + 1) = x + (x + x) = x + x + x = 0
+    \]
+\end{proof}
+
+\end{document}

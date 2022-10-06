@@ -1,0 +1,50 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\open}[2]{\left(#1, #2\right)}
+
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q1)}
+
+\noindent (a)
+
+$D = \R \setminus \{-2\}$
+
+\noindent (b)
+
+The range of $f(x)$ is $\open{-\infty}{3} \cup \open{3}{\infty} = \R \setminus \{3\}$.
+
+\begin{proof}
+    Let
+    \[
+        y = f(x) = \frac{3x - 1}{x + 2},\: x \in D,\:y \in \R
+    \]
+
+    We can derive a function from $f$ where the range of $f$ becomes the domain 
+    of the function, by making $x$ the subject of the equation.
+
+    Thus,
+    \begin{align*}
+        y = f(x) & = \frac{3x - 1}{x + 2}\\
+        \implies yx - 2y & = 3x + 1\\
+        \implies yx - 3x & = 2y + 1\\
+        \implies x(y - 3) & = 2y + 1\\
+        \implies x & = \frac{2y + 1}{y - 3}\\
+    \end{align*}
+
+    From this we can deduce that $y$ is defined for all $\R$ except $y = 3$, which is the
+    set $\R \setminus \{3\}$.
+\end{proof}
+
+\end{document}

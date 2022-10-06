@@ -1,0 +1,84 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\sse}{\subseteq}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q2)}
+
+\noindent (a) $2(x)(x + 1)(x + 2)$
+
+\emptyline
+\noindent (b) Since $\Z$ is closed under addition and multiplication, we can 
+express any integer $a$ in the form
+\[
+    a = dq - b, 0 \leq b < d
+\]
+Where $d$, $q$, and $b$ are integers. This shows that any integer can be expressed
+as the product of a divisor and quotient, minus a positive remainder $b$ that is always
+less than $d$. $a$ is said to be divisible by $d$ iff $b = 0$.
+
+Where the divisor is 3, it follows that
+\begin{align*}
+    a & = 3q - b, 0 \leq b < 3\\
+    \implies a + b & = 3q
+\end{align*}
+
+For any three consecutive integers $a + 0$, $a + 1$, and $a + 2$, the constraints on the 
+value of $b$ are always satisfied, and there is always an $a$ where $b$ is zero, 
+therefore exactly one integer out of any three consecutive integers is divisible by 3.
+
+\emptyline
+\noindent(c)
+
+\begin{proof}
+    From (b), given three consecutive integers, one is divisible by 3. Let $x \in \N$.
+    
+    Therefore, given
+    a set $\{x, x + 1, x + 2\},\: x \in \N$, taking $x$ to be the integer divisible by 3, we can express
+    the set as $\{3q, x + 1, x + 2\}$, where $q \in \N$.
+
+    From (a), we can see that the numerator of the rational function $\tfrac{2x^3 + 6x^2 + 4x}{3}$
+    can be factorized to $2(x)(x + 1)(x + 2)$, such that
+    \begin{align*}
+        f(x) & = \frac{2(x)(x + 1)(x + 2)}{3} \\
+        & = \frac{2(3q)(x + 1)(x + 2)}{3} \quad\text{[from (b)]}\\
+        & = 2(q)(x + 1)(x + 2)
+    \end{align*}
+    Since $q, x \in \N$ and $\N$ is closed under addition and multiplication, we can conclude
+    that $f(x) \in \N$ for all $x \in \N$.
+
+\end{proof}
+
+\emptyline
+\noindent(d)
+$f(\N) \neq \N$
+
+\begin{proof}
+    Since $f(\N) = \N$ iff $f(\N) \sse \N$ and $\N \sse f(\N)$, to prove 
+    that $f(\N) \neq \N$ it suffices to show $\N \nsubseteq f(\N)$.
+
+    Looking at the function, we have $2(q)(x + 1)(x + 2),\: x, q \in \N$.
+
+    From the definition of the function, we can see that $2$ is a factor, thus
+    the output of $f(x)$ for all $x \in \N$ will be an even number.
+
+    Since the set of odd numbers is not in the image of $f$, we can conclude that
+    $\N \nsubseteq f(\N)$ and thus $f(\N) \neq \N$.
+\end{proof}
+\end{document}
