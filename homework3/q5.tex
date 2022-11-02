@@ -1,0 +1,42 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q5)}
+
+All odd numbers $\geq 3$.
+
+We are given that for a statement $P(k)$:
+
+\begin{enumerate}
+    \item $P(3)$ is true.
+    \item For any $k > 1$, $P(k) \implies P(k + 2)$ is true.
+\end{enumerate}
+
+We can justify this using the principle of mathematical induction (PMI). Given a base case
+and an induction hypothesis, we can find all numbers $n$ for which $P(n)$ is true.
+
+By (1), since $P(3)$ is true but not $P(1)$ (by (2)), we can take $P(3)$ as our base case.
+
+Statement 2 tells us that $P(k) \implies P(k + 2)$. This means for any given $k \geq 3$,
+e.g. 3, $P(k) \implies P(k + 2$) (in this case $P(3) \implies P(5)$). By induction, we can continue this indefinitely
+for all odd natural numbers ($P(5) \implies P(7), \: P(7) \implies P(9),$ etc.).
+
+Thus, by PMI, we can conclude that $P(n)$ is true for all odd numbers $n \geq 3$.
+
+\end{document}

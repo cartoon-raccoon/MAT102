@@ -1,0 +1,76 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q4)}
+
+\begin{theorem}
+    Let $x \in (0, 1)$. Use induction to prove that $\frac{1}{x^n} > \frac{1}{x}$ for all
+    natural numbers $n \geq 2$.
+\end{theorem}
+
+\begin{proof}
+    Let the theorem be $P(n)$ such that:
+    \begin{gather*}
+        \forall x \in (0,1), \forall n \in \N \text{ where $n \geq 2$},\\
+        \frac{1}{x^n} > \frac{1}{x}
+    \end{gather*}
+    We observe the following:
+    \begin{gather}
+        \frac{1}{x^n} > \frac{1}{x} \iff x^n < x
+    \end{gather}
+
+    It thus suffices to prove that $x^n < x$.
+
+    Using induction we consider a base case $P(2)$ and the induction hypothesis
+    $P(k) \implies P(k + 1)$.
+
+    \noindent\textit{Base Case.}
+    
+    \[
+        P(2) = \frac{1}{x^2} > \frac{1}{x}
+    \]
+
+    Since $0 < x < 1$:
+    \[
+        x < 1 \implies x^2 < x \iff \frac{1}{x^2} > \frac{1}{x}
+    \]
+
+    Thus, the base case holds.
+
+    \noindent\textit{Induction Step.}
+
+    We consider the induction hypothesis $P(k) \implies P(k + 1)$:
+    \[
+        \frac{1}{x^k} > \frac{1}{x} \implies \frac{1}{x^{k + 1}} > \frac{1}{x}
+    \]
+
+    By (1), we can rewrite this as $x^k < x \implies x^{k + 1} < x$.
+
+    We observe that $x^{k + 1} = x^k \cdot x$. Assuming $P(k)$, it follows:
+    \begin{align*}
+        x^k < x & \implies x^k \cdot x < x \text{ (since $x < 1$)}\\
+        & \implies x^{k + 1} < x \iff \frac{1}{x^{k + 1}} > \frac{1}{x}
+    \end{align*}
+
+    By PMI, since the base case and induction hypothesis both hold, the theorem is proved,
+    as required.
+
+\end{proof}
+
+\end{document}
