@@ -1,0 +1,70 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\sse}{\subseteq}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q2)}
+
+\vspace{5mm}
+
+\noindent\textit{(a)} $\displaystyle{\frac{1}{36}}$
+
+\vspace{5mm}
+
+\noindent\textit{(b)} $\displaystyle{\frac{1}{(n + 1)^2}}$
+
+\vspace{5mm}
+
+\noindent\textit{(c)}
+
+\begin{proof}
+    Let the theorem $P(k)$ be $\prod_{i = 1}^k\frac{i^2}{(i + 1)^2} = \frac{1}{(k + 1)^2}$.
+    
+    We prove this theorem by considering the base case $P(1)$ and then the induction hypothesis
+    $P(k) \implies P(k + 1)$ for some $k \in \N$:
+    \[
+        \prod_{i = 1}^k\frac{i^2}{(i + 1)^2}
+        = \frac{1}{(k + 1)^2}
+        \implies
+        \prod_{i = 1}^{k + 1}\frac{i^2}{(i + 1)^2}
+        = \frac{1}{((k + 1) + 1)^2}
+    \]
+
+    \noindent\textit{Base Case.}
+    \[
+        P(1) = \prod_{i = 1}^{1}\frac{i^2}{(i + 1)^2} = \frac{1}{4} = \frac{1}{(1 + 1)^2}
+    \]
+
+    Which shows the base case holds.
+
+    \noindent\textit{Induction Step.}
+
+    Assuming $P(k)$, it follows:
+
+    \begin{align*}
+        \prod_{i = 1}^{k + 1}  & = \frac{1}{(k + 1)^2} \cdot \frac{(k + 1)^2}{((k + 1) + 1)^2}\\
+        & = \frac{(k + 1)^2}{(k + 1)^2((k + 1) + 1)^2}\\
+        & = \frac{1}{((k + 1) + 1)^2}
+    \end{align*}
+
+    By PMI, since both the base case and induction step hold, we have proven the theorem, as required.
+
+\end{proof}
+
+\end{document}

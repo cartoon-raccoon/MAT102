@@ -1,0 +1,73 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q3)}
+
+\vspace{5mm}
+
+\noindent\textit{(a)} $\displaystyle{\frac{5}{6}}$\
+
+\vspace{5mm}
+
+\noindent\textit{(b)} $\displaystyle{\frac{n}{n + 1}}$
+
+\vspace{5mm}
+
+\noindent\textit{(c)}
+
+\begin{proof}
+    Let the theorem be $P(k)$ be $\sum_{i =  1}^{k}(\frac{1}{i} - \frac{1}{i + 1}) = \frac{k}{k + 1}$.
+    
+    We prove this by considering the base case $P(1)$ and then the induction hypothesis
+    $P(k) \implies P(k + 1)$ for some $k \in \N$:
+    \[
+        \sum_{i = 1}^{k}\left(\frac{1}{i} - \frac{1}{i + 1}\right) = \frac{k}{k + 1}
+        \implies
+        \sum_{i = 1}^{k + 1}\left(\frac{1}{i} - \frac{1}{i + 1}\right) = \frac{k + 1}{(k + 1) + 1}
+    \]
+
+    \noindent\textit{Base Case.}
+    \[
+        P(1) = \sum_{i = 1}^{1}\left(\frac{1}{1} - \frac{1}{1 + 1}\right)
+        = \frac{1}{2} = \frac{1}{1 + 1}
+    \]
+
+    \noindent\textit{Induction Step.}
+
+    Assuming $P(k)$, it follows:
+    \begin{align*}
+        \sum_{i = 1}^{k + 1}\left(\frac{1}{i} - \frac{1}{i + 1}\right) & =
+        \frac{k}{k + 1} + \left(\frac{1}{k + 1} - \frac{1}{(k + 1) + 1}\right)\\
+        & = \frac{k}{k + 1} + \left(\frac{(k + 1) + 1}{(k + 1)((k + 1) + 1)} - 
+        \frac{k + 1}{(k + 1)((k + 1) + 1)}\right)\\
+        & = \frac{k}{k + 1} + \left(\frac{1}{(k + 1)((k + 1) + 1)}\right)\\
+        & = \frac{k((k + 1) + 1) + 1}{(k + 1)((k + 1) + 1)}\\
+        & = \frac{k^2 + 2k + 1}{(k + 1)((k + 1) + 1)}\\
+        & = \frac{(k + 1)^2}{(k + 1)((k + 1) + 1)}\\
+        & = \frac{k + 1}{(k + 1) + 1}
+    \end{align*}
+
+    Which proves the induction hypothesis.
+
+    Since the base case and induction hypothesis both hold, the theorem is proved
+    by induction, as required.
+
+\end{proof}
+
+\end{document}

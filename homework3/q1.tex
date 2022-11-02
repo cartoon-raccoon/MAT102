@@ -1,0 +1,72 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\sse}{\subseteq}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q1)}
+
+\begin{theorem}
+    Using induction, prove that for all even natural numbers \emph{n}, the integer
+    $n^3 + 2n^2 - 32$ is divisible by 8.
+\end{theorem}
+
+\begin{proof}
+    Let the theorem be $P(n) = n^3 + 2n^2 - 32$. We first consider the base case $P(2)$
+    and then the induction hypothesis where for a given even natural number $k$:
+    \[
+        P(k) \implies P(k + 2)
+    \]
+
+    \noindent\textit{Base Case.} Considering $P(2)$:
+    \[
+        P(2) = 2^3 + 2(2)^2 - 32 = 8 + 8 - 32 = -16
+    \]
+    Which is divisible by 8, so the base case holds.
+
+    \noindent\textit{Induction Step.} We consider the induction hypothesis:
+    \[
+        P(k) \implies P(k + 2) \text{ where $k$ is an even natural number}
+    \]
+
+    It follows:
+    
+    \begin{align*}
+        (k + 2)^3 + 2(k + 2)^2 - 32 & = (k^3 + 2k^2 + 4k^2 + 8k + 4k + 8) + (2k^2 + 8k + 8) - 32\\
+        & = (k^3 + 2k^2 - 32) + 6k^2 + 20k + 16
+    \end{align*}
+
+    Assuming that $(k^3 + 2k^2 - 32)$ is divisible by 8, it suffices to prove that $6k^2 + 20k + 16$
+    is divisible by 8.
+
+    Since $k$ is even, we can express $k$ as $2m$, where $m$ is a natural number. We can thus express
+    $6k^2$ and $20k$ as $6(2m)^2$ and $20(2m)$ respectively.
+
+    Then
+    \[
+        6k^2 + 20k + 16 = 6(2m)^2 + 20(2m) + 16 = 24m^2 + 40m + 16 = 8(3m^2 + 5m + 2)
+    \]
+
+    Since $\N$ is closed under multiplication, $3m^2 + 5m + 2$ is a natural, thus
+    $8(3m^2 + 5m + 2)$ is divisible by 8, proving the induction hypothesis.
+
+    By PMI, since the base case and induction hypothesis hold, we have proved the theorem, as
+    required.
+\end{proof}
+
+\end{document}
