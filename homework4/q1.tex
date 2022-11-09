@@ -1,0 +1,71 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\sse}{\subseteq}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q1)}
+
+\begin{theorem}
+    Let $a_n$ be the sequence defined recursively as follows:
+    \begin{align*}
+        a_1 & = 1\\
+        a_2 & = 1\\
+        a_n &= \frac{a_{n - 1}}{2} + \frac{1}{a_{n-2}}
+    \end{align*}
+
+    Prove that $a_n \in [1, 2]$ for all $n$.
+\end{theorem}
+
+\begin{proof}
+    We prove this with strong induction. We use the base case $n = 3$:
+    \[
+        a_3 = \frac{1}{2} + \frac{1}{1} = \frac{3}{2} \in [1, 2]
+    \]
+
+    Thus, the base case holds.
+
+    For the induction step, as part of strong induction we assume that $a_k$
+    for all $k \in \{1, 2, 3, \ldots , k - 1, k\}$. Next we use the induction hypothesis:
+    $a_k \implies a_{k + 1}$.
+
+    For any $k > 2$, $a_{k + 1}$ is defined as:
+
+    \[
+        a_{k + 1} = \frac{a_{k}}{2} + \frac{1}{a_{k - 1}}
+    \]
+
+    As part of our induction hypothesis and strong induction, we assume that $a_k$ and
+    $a_{k - 1} \in [1, 2]$. Thus,
+
+    \begin{align*}
+        a_k \in [1, 2] & \implies \frac{a_k}{2} \in [0.5, 1]\\
+        a_{k + 1} \in [1, 2] & \implies \frac{1}{a_{k + 1}} \in [0.5, 1]
+    \end{align*}
+
+    Therefore,
+
+    \[
+        \frac{a_{k}}{2} + \frac{1}{a_{k - 1}} \in [1, 2]
+    \]
+
+    Which proves the induction hypothesis.
+
+    Since the base case and induction hypothesis are proven, by PSMI we have proven the theorem.
+\end{proof}
+\end{document}

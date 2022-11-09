@@ -1,0 +1,56 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\sse}{\subseteq}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q3)}
+
+We are required to find and prove a formula for the sum $\displaystyle\sum_{i = m}^{n} i$.
+
+This can be explicitly stated as:
+
+\[
+    m + (m + 1) + (m + 2) + (m + 3) + \ldots + (n - 1) + n
+\]
+
+We observe that this is equivalent to:
+
+\[
+    1 + 2 + \ldots + m + (m + 1) + \ldots + (n - 1) + n - (1 + 2 + \ldots + (m - 1))
+\]
+
+The summation of which can be expressed as:
+
+\[
+    \sum_{i = 1}^{n} i - \sum_{i = 1}^{m - 1} i \quad (1)
+\]
+
+We assume the following:
+
+\[
+    \sum_{i = 1}^{n} i = \frac{n(n + 1)}{2}
+\]
+
+We can thus express (1) as:
+
+\begin{align*}
+    \frac{n(n + 1)}{2} - \frac{m(m - 1)}{2} = \frac{n(n + 1) - m(m - 1)}{2}
+\end{align*}
+
+\end{document}

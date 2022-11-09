@@ -1,0 +1,64 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\sse}{\subseteq}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q5)}
+
+\begin{theorem}
+    Find all natural numbers $n$ so that $6^{n + 2} \leq 7^{n - 1}$. Prove your claim
+    using induction.
+\end{theorem}
+
+All natural numbers $\geq 36$.
+
+\begin{proof}
+    We can rewrite the given expression as follows:
+    \begin{align*}
+        6^{n + 2} \leq 7^{n - 1} & \implies 6^n \cdot 36 \leq \frac{7^n}{7}\\
+        & \implies 6^n \cdot 252 \leq 7^n\\
+        & \implies \frac{6^n}{7^n} \leq \frac{1}{252}\\
+        & \implies \left(\frac{6}{7}\right)^n \leq \frac{1}{252}
+    \end{align*}
+
+    It thus suffices to prove that $\left(\frac{6}{7}\right)^n \leq \frac{1}{252}$ for
+    all naturals $n \geq 36$.
+
+    First we consider our base case $\left(\frac{6}{7}\right)^36 \leq \frac{1}{252}$.
+    We see that this evaluates to $0.00389 < \frac{1}{252} = 0.00397$, so the base case holds.
+
+    For our induction step, we assume that for some $k \in \N$, 
+    \[
+        \left(\frac{6}{7}\right)^k \leq \frac{1}{252} \implies
+        \left(\frac{6}{7}\right)^{k + 1} \leq \frac{1}{252}
+    \]
+
+    We observe that $\left(\frac{6}{7}\right)^{k + 1} = \left(\frac{6}{7}\right)^k \cdot \frac{6}{7}$.
+    Since $\frac{6}{7} < 1$:
+    
+    \[
+        \left(\frac{6}{7}\right)^k \cdot \frac{6}{7} < \left(\frac{6}{7}\right)^k < \frac{1}{252}
+    \]
+
+    Which proves the induction hypothesis.
+
+    Thus, by PMI, we have proven the theorem, as required.
+\end{proof}
+
+\end{document}

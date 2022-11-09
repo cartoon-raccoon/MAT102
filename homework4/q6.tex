@@ -1,0 +1,82 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\sse}{\subseteq}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q6)}
+
+\noindent\textit{(a)}
+
+\begin{proof}
+    We prove this with strong induction. First we consider our base case, $F_3$.
+
+    We observe that $F_1 = 1 > 0, F_2 = 1 > 0, F_3 = 2 > 0$, so the base case holds.
+
+    Using strong induction, we assume that for a given $k > 2$ that 
+    all numbers $F_1, F_2, \ldots F_{k - 1}$ are all $> 0$.
+
+    Now we consider our induction hypothesis, for some $k > 2$:
+    \[
+        F_k > 0 \implies F_{k + 1} > 0
+    \]
+
+    By the definition of the Fibonacci numbers:
+    \[
+        F_{k + 1} = F_k + F_{k - 1}
+    \]
+
+    We observe that by assumption, $F_k$ and $F_{k - 1} >0 $, therefore,
+    $F_k + F_{k - 1} > 0 \implies F_{k + 1} > 0$, thus the induction hypothesis holds.
+
+    Therefore, by PSMI, we have proven the theorem, as required.
+\end{proof}
+
+\noindent\textit{(b)}
+
+\begin{proof}
+    We prove this with standard induction. First we consider our base cases, $F_1, F_2$, and $F_3$:
+    \[
+        F_1 = 1, F_2 = 1, F_3 = 2
+    \]
+
+    Since $F_3 = 2 > F_1 = F_2$, the base case holds.
+
+    Next, in the induction step, we assume the induction hypothesis that for some natural $k > 2$,
+    $F_k > F_j$ for any $j \in \{1, 2, \ldots k - 1\}$, and prove that this implies
+    that $F_{k + 1} > F_j$ for any $j \in \{1, 2, \ldots k\}$.
+
+    By the definition of the Fibonacci numbers, we can write $F_{k + 1}$ as:
+    \[
+        F_{k + 1} = F_k + F_{k -1}
+    \]
+
+    We observe that by (a), $F_k > 0 \text{ and } F_{k - 1} > 0 \implies F_{k + 1} > F_k$. 
+    Thus, assuming the induction hypothesis, 
+    \begin{gather*}
+        F_{k + 1} > F_k > F_j \text{ for any } j \in \{1, 2, \ldots k - 1\}\\
+        \implies F_{k + 1} > F_j \text{ for any } j \in \{1, 2, \ldots k\}
+    \end{gather*}
+
+    Which completes the induction step.
+
+    Since both the base case and induction hypothesis hold, by PMI we have proven the theorem,
+    as required.
+\end{proof}.
+
+\end{document}

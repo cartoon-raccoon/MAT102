@@ -1,0 +1,96 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\st}{\text{ s.t. }}
+\renewcommand{\times}{\cdot}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\sse}{\subseteq}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q4)}
+
+\noindent\textit{(a)}
+
+$6! = 1 \cdot 2 \cdot 3 \cdot 4 \cdot 5 \cdot 6 = 720$
+
+$7! = 6! \cdot 7 = 5040$
+
+\noindent\textit{(b)}
+
+\begin{proof}
+    Since $n > m$, we can rewrite $n!$ as:
+    \[
+        (1 \times 2 \times \ldots \times m) \times ((m + 1) \times (m + 2) \times \ldots \times n)
+    \]
+
+    In product notation:
+
+    \[
+        n! = \prod_{i = 1}^{n} i = \prod_{i = 1}^{m} i \: \cdot \prod_{i = m + 1}^{n} i
+    \]
+
+    Since $n > m$ and $n, m \in \N$, $n > 1 \implies \displaystyle\prod_{i = m + 1}^{n} i > 1$.
+
+    Therefore,
+
+    \[
+        n! = \prod_{i = 1}^{m} i \: \cdot \prod_{i = m + 1}^{n} i = m! \: \cdot \prod_{i = m + 1}^{n} i \: > m!
+    \]
+
+    Which proves the theorem, as required.
+\end{proof}
+
+\noindent\textit{(c)}
+
+\begin{proof}
+    We first consider a few base cases.
+
+    Considering the base cases where $n = 1 \text{ and } n = 2$:
+    \begin{gather*}
+        x \geq 1 \implies x^1 \geq 1 \geq 1! = 1\\
+        x \geq 2 \implies x^2 \geq 4 \geq 2! = 2
+    \end{gather*}
+
+    Next for our induction step, we assume the following induction hypothesis:
+    \[
+        x \geq n \implies x^n \geq n!
+    \]
+
+    And prove that this further implies $x^{n + 1} \geq (n + 1)!$.
+
+    First, we observe that every time $n$ increases, $x$ must as well, in order to
+    maintain $x \geq n$. Thus, let $x_2 \geq n + 1$ for some given $n$ such that $x \geq n$.
+
+    We also observe that $(n + 1)! = n! \cdot (n + 1)$. Thus, we can rewrite the implication
+    we are trying to prove as:
+
+    \[
+        x_2^{n + 1} \geq (x + 1)^{n + 1} = (x + 1)^n \cdot (x + 1) \geq n! \cdot (n + 1)
+    \]
+
+    We observe that $(x + 1)^n \geq x^n \geq n!$, and that 
+    $x + 1 \geq n + 1$. Thus,
+    \[
+        (x + 1)^n \cdot (x + 1) \geq n! \cdot (n + 1) \implies x_2^{n + 1} \geq (n + 1)!
+    \]
+
+    Which proves the implication.
+
+    Thus, we have proven the theorem by PMI, as required.
+\end{proof}
+
+\end{document}
