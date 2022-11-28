@@ -1,0 +1,91 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q6)}
+
+\begin{theorem}
+    Let $S$ be the set of all finite sequences of the letters \emph{a, b, c}.
+
+    $S$ is countable.
+\end{theorem}
+
+\begin{proof}
+    In order to prove that a set is countable, we form a bijection between it and $\N$.
+
+    We thus define a bijection $f \colon S \to \N$ that maps a sequence of \textit{a, b, c}
+    to a unique natural number.
+
+    First, we form a sequence of each possible sequence of the three characters:
+    \[
+        a, b, c, aa, ab, ac, ba, bb, bc, \ldots, cc, aaa, aab, aac, aba, \ldots
+    \]
+
+    As soon as the character in the last place is \textit{c}, we wrap around back to 
+    $a$, and "carry the $a$" to the digit on the left. In this way, we imitate a 
+    ternary number system, and following this system, all possible finite and 
+    unique sequences are covered.
+    
+    This is where we begin to form our bijection. We map each element of the above
+    infinite sequence to a natural number:
+
+    \[
+        a \to 1, \; b \to 2, \; c \to 3, \; aa \to 4, \; ab \to 5, \; \ldots
+    \]
+
+    From this sequence we observe that each natural assigned to each sequence can
+    be expressed as a sum of multiples of powers of 3:
+
+    \[
+        a \to 1 = 1 \cdot 3^0,\; aa \to 4 = 1 \cdot 3^1 + 1 \cdot 3^0,\; 
+        ab \to 5 = 1 \cdot 3^1 + 2 \cdot 3^0, \ldots
+    \]
+
+    From this, we can form a rule for deriving a unique natural number for each element in this
+    set.
+    
+    We first assign a digit to each number: \textit{a} to $1$, \textit{b} to $2$, and \textit{c} to $3$.
+
+    For a sequence of $k$ length, we form its
+    corresponding natural number as a sum of decreasing powers of 3, starting from $3^{k - 1}$,
+    and each power multiplied by its letter's corresponding number.
+    Following the example sequence $ababc$:
+    \begin{center}
+        \makebox[8cm][s]{$a$ $b$ $a$ $b$ $c$}
+
+        \makebox[8cm][s]{$\downarrow$ $\downarrow$ $\downarrow$ $\downarrow$ $\downarrow$}
+
+        \makebox[11cm][s]{
+            \mbox{$1 \cdot 3^4$}
+            \mbox{$2 \cdot 3^3$}
+            \mbox{$1 \cdot 3^2$}
+            \mbox{$2 \cdot 3^1$}
+            \mbox{$3 \cdot 3^0$}
+        }
+    \end{center}
+
+    Which gives us the sum $81 + 54 + 9 + 6 + 3 = 153$, i.e. $f(ababc) = 153$.
+
+    Thus, $f \colon S \to \N$ can only produce one possible output for each unique sequence, 
+    making it injective, and can produce a natural number for every sequence of $a, b, c$, making
+    it surjective, thereby making it bijective.
+
+    Since $f$ is bijective, $|\N| = |S|$, and $S$ is countable.
+\end{proof}
+
+\end{document}

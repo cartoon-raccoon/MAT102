@@ -1,0 +1,76 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q4)}
+
+\begin{theorem}
+    $\R \setminus \Q$ is uncountable.
+\end{theorem}
+
+This proof requires the following lemma:
+\begin{lemma}
+    The union of two disjoint countable sets is countable.
+\end{lemma}
+
+\begin{proof}
+    As always, we prove that a set is countable by forming a bijection between
+    $\N$ and the set.
+
+    For the sake of this proof, let the two sets be set $A$ and $B$. $A$ and $B$
+    are countable, and thus a bijection exists between $\N$ and $A$ and $B$ respectively.
+
+    Let the bijection for $A$ be given by $f\colon \N \to A$ and the bijection for $B$
+    be given by $g \colon \N \to B$.
+
+    We define a function $h \colon \N \to A \cup B$:
+
+    \[
+        h(k) = \begin{cases}
+            f(\frac{k + 1}{2}) \text{ if $k$ is odd}\\
+            g(\frac{k}{2}) \text{ if $k$ is even}
+        \end{cases}
+    \]
+
+    Thus, the sequence defined by $h(1), h(2), h(3) \ldots$ for $h(\N)$ is:
+    \[
+        f(1), g(1), f(2), g(2), f(3), g(3) \ldots
+    \]
+
+    Since the sets are disjoint, this function is injective, as no two different inputs to $h$ 
+    can produce the same outputs. This function is also surjective, since $f$ and $g$ are 
+    surjective and map to every element in $A$ and $B$ respectively.
+
+    Thus, $h \colon \N \to A \cup B$ is bijective, and $A \cup B$ is countable.
+\end{proof}
+
+We can now prove \textbf{Theorem 1}.
+
+\begin{proof}
+    For the sake of contradiction, suppose $\R \setminus \Q$ is countable.
+
+    By earlier proof, $\Q$ is countable. By proof of \textbf{Lemma 1}, the union of
+    two disjoint countable sets is also countable. Thus, $(\R \setminus \Q) \;\cup\; \Q$ is countable. 
+    However, $(\R \setminus \Q) \;\cup\; \Q = \R$, which is uncountable.
+
+    This is a contradiction, and thus $\R \setminus \Q$ is uncountable.
+\end{proof}
+
+\end{document}

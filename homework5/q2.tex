@@ -1,0 +1,142 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q2)}
+
+\begin{theorem}
+    $\Q \setminus \Z$ is countable.
+\end{theorem}
+
+\begin{proof}
+    We prove that a set is countable by defining a bijection between it and $\N$.
+
+    Thus, we can do this by modifying the proof of countability of $\Q$ by placing
+    additional constraints on how we construct the initial set.
+
+    With reference to the proof of Theorem 5.4.1, we define for each $k \in \N$, the set
+
+    \[
+        A_k = \left\{ \frac{a}{b} \colon a, b \in \N \text{ and } 
+        a + b = k \text{ and $gcd(a, b) = 1$ and } b \neq 1
+        \right\}
+    \]
+
+    The reasons for adding the additional restrictions $gcd(a, b) = 1$ and $b \neq 1$
+    are as follows:
+    \begin{itemize}
+        \item Having $a$ and $b$ be coprime prevents the rational from being reduced
+        to a simpler form, and
+        \item Having $b \neq 1$ prevents the fraction $\frac{a}{1}$
+        from occurring, and thus resolving to an integer.
+    \end{itemize}
+
+    This also has the added benefit of removing any repetitions, e.g. $\frac{3}{6}$
+    (a repetition of $\frac{1}{2}$) is not in this set since 3 and 6 are not coprime,
+    as is $\frac{12}{6}$ (a repetition of $\frac{2}{1}$, which itself is not in the set).
+
+    Thus, we end up with the following sets:
+
+    \begin{gather*}
+        A_1 = A_2 = \phi\\
+        A_3 = \left\{\frac{1}{2}\right\}\\
+        A_4 = \left\{\frac{1}{3}\right\}\\
+        A_5 = \left\{\frac{1}{4}, \frac{2}{3}, \frac{3}{2}\right\}\\
+        A_6 = \left\{\frac{1}{5}\right\}\\
+        A_7 = \left\{\frac{1}{7}, \frac{2}{5}, \frac{5}{2}, \frac{3}{4}, \frac{4}{3}\right\}
+    \end{gather*}
+
+    And so on for increasing values of $k \in \N$.
+
+    The rest of the proof follows similarly to the proof for $|\Q|$. We then arrange a sequence
+    with elements from each set in order of increasing $k$:
+    \[
+        \underbrace{\frac{1}{2},}_{A_3}
+        \underbrace{\frac{1}{3},}_{A_4}
+        \underbrace{\frac{1}{4}, \frac{2}{3}, \frac{3}{2}}_{A_5}
+        \underbrace{\frac{1}{5},}_{A_6}
+        \underbrace{\frac{1}{7}, \frac{2}{5}, \frac{5}{2}, \frac{3}{4}, \frac{4}{3}}_{A_7}
+        \ldots
+    \]
+
+    This sequence has several key properties:
+
+    \begin{itemize}
+        \item It has no repetitions, since they were all eliminated in defining $A_k$.
+        \item Every non-integer positive rational appears as an element of this sequence.
+        \item There are no integers in this sequence.
+    \end{itemize}
+
+    \newpage
+
+    All that remains is to add the negative rationals, so a sequence
+    $a_1, a_2, a_3, a_4, a_5$ becomes:
+    \[
+        a_1, -a_1, a_2, -a_2, a_3, -a_3 \ldots
+    \]
+
+    Or more explicitly:
+    \[
+        \frac{1}{2}, -\frac{1}{2},
+        \frac{1}{3}, -\frac{1}{3}.
+        \frac{1}{4}, -\frac{1}{4}, \frac{2}{3}, -\frac{2}{3},
+        \frac{3}{2}, -\frac{3}{2} \ldots
+    \]
+
+    We can now construct the desired bijection $f \colon \N \to (\Q \setminus \Z)$:
+    \[
+        \makebox[2cm][c]{$\N$}\makebox[10cm][s]{
+            1 2 3 4 5 6 7 8 9 10
+        }
+    \]
+    \[
+        \makebox[2cm][l]{}\makebox[10cm][s]{
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+        }
+    \]
+    \[
+        \makebox[2cm][c]{$\Q \setminus \Z$}\makebox[10cm][s]{
+            $\frac{1}{2}$ $-\frac{1}{2}$
+            $\frac{1}{3}$ $-\frac{1}{3}$
+            $\frac{1}{4}$ $-\frac{1}{4}$
+            $\frac{2}{3}$ $-\frac{2}{3}$
+            $\frac{3}{2}$ $-\frac{3}{2}$
+        }
+    \]
+
+
+    This function maps odd numbers to a positive rational, and even numbers to a
+    negative rational. All non-integer rationals are covered, thus the function is
+    surjective; and all numbers are mapped to only once, thus the function is injective.
+
+    Thus, we have constructed a bijection between $\N$ and $\Q \setminus \Z$, and therefore
+    $\Q \setminus \Z$ is countable.
+
+\end{proof}
+
+\end{document}

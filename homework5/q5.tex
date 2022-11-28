@@ -1,0 +1,39 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\emptyline}{\hfill\break}
+\newcommand{\sse}{\subseteq}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q5)}
+
+\begin{theorem}
+    Let $A,\;B \sse \R$. If $f \colon A \to B$ is strictly monotone, then there
+    exists a subset $C \sse \R$ with the same cardinality as $A$.
+\end{theorem}
+
+\begin{proof}
+    By Proposition 5.1.4, since $f$ is strictly monotone, it is therefore injective
+    on $B$.
+
+    In order to prove that $|C| = |A|$, we construct a bijection between them.
+    Let $C = f(A)$. $f$ is surjective on $C$ by the definition of function image,
+    and is also injective on $C$ since $C \sse B$.
+
+    Therefore, since $f \colon A \to C$ is bijective, $|C| = |A|$.
+\end{proof}
+
+\end{document}

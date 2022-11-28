@@ -1,0 +1,141 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{mathtools}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\emptyline}{\hfill\break}
+\newcommand{\sse}{\subseteq}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q3)}
+
+\begin{theorem}
+    $\N \times \Q$ is countable.
+\end{theorem}
+
+\begin{proof}
+    We first enumerate $\Q$ as it is done in the proof of Theorem 5.4.1.
+
+    We construct our set $A_k$ for each $k \in \N$:
+    \[
+        A_k = \left\{ \frac{1}{k - 1}, \frac{2}{k - 2}, \frac{3}{k - 3},
+         \ldots ,\frac{k - 1}{k} \right\}
+    \]
+
+    Form a sequence:
+    \[
+        \underbrace{\frac{1}{1}}_{A_2},
+        \underbrace{\frac{1}{2}, \frac{2}{1}}_{A_3},
+        \underbrace{\frac{1}{3}, \frac{2}{2}, \frac{3}{1}}_{A_4},
+        \underbrace{\frac{1}{4}, \frac{2}{3}, \frac{3}{2}, \frac{4}{1}}_{A_5}
+        \underbrace{\frac{1}{5}, \frac{2}{4}, \frac{3}{3}. \frac{4}{2}. \frac{5}{1}}_{A_6}
+        \ldots
+    \]
+
+    Remove repetitions, add 0, and insert the negative rationals until we end up
+    with the sequence in the proof of Theorem 5.4.1:
+    \[
+        0, \frac{1}{1}, -\frac{1}{1},
+        \frac{1}{2}, -\frac{1}{2},
+        \frac{2}{1}, -\frac{2}{1},
+        \frac{1}{3}, -\frac{1}{3},
+        \frac{3}{1}, -\frac{3}{1}, \ldots
+    \]
+
+    We then use this sequence to define a table by pairing each element of this
+    sequence with a natural number. Since $|\N| = |\Q|$, there should be no
+    unpaired numbers:
+    
+    
+    \makebox[11cm][s]{
+        $(1, 0)$,
+        $(1, \frac{1}{1})$, $(1, -\frac{1}{1})$, 
+        $(1, \frac{1}{2})$, $(1, -\frac{1}{2})$, 
+        $(1, \frac{2}{1})$, \ldots
+    }
+
+    \makebox[9.4cm][s]{
+        $(2, 0)$,
+        $(2, \frac{1}{1})$, $(2, -\frac{1}{1})$, 
+        $(2, \frac{1}{2})$, $(2, -\frac{1}{2})$, 
+        \ldots
+    }
+
+    \makebox[7.7cm][s]{
+        $(3, 0)$,
+        $(3, \frac{1}{1})$, $(3, -\frac{1}{1})$, 
+        $(3, \frac{1}{2})$, 
+        \ldots
+    }
+
+    \makebox[6cm][s]{
+        $(4, 0)$,
+        $(4, \frac{1}{1})$, $(4, -\frac{1}{1})$, 
+        \ldots
+    }
+
+    \makebox[4.3cm][s]{
+        
+        $(5, 0)$, $(5, \frac{1}{1})$, 
+        \ldots
+    }
+
+    \makebox[2.7cm][s]{
+        $(6, 0)$, \ldots
+    }
+
+    There are no repeated elements in this table, as each element of either
+    set forms a unique pair with another element from the other.
+
+    We can now flatten the table into a sequence by taking items diagonally:
+    \[
+        (1, \frac{1}{1}), (1, -\frac{1}{1}),
+        (2, \frac{1}{1}), (1, \frac{1}{2}),
+        (2, -\frac{1}{1}), (3, \frac{1}{1}), \ldots
+    \]
+
+    And thus form a bijection $f \colon \N \to (\N \times \Q)$ for this sequence:
+
+    \[
+        \makebox[2cm][l]{$\N$}\makebox[10cm][s]{
+            1 2 3 4 5 6
+        }\makebox[1cm]{}
+    \]
+    \[
+        \makebox[2cm][l]{}\makebox[10cm][s]{
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+            \mbox{$\downarrow$}
+        }\makebox[1cm][l]{$\ldots$}
+    \]
+    \[
+        \makebox[2cm][l]{$\N \times \Q$}\makebox[10cm][s]{
+            $(1, 0)$, $(1, \frac{1}{1})$,
+            $(2, 0)$, $(1, -\frac{1}{1})$,
+            $(2, \frac{1}{1})$, $(3, 0)$,
+        }\makebox[1cm]{}
+    \]
+
+    All items in $\N \times \Q$ are covered, thus $f$ is surjective; and all items
+    are mapped to only once, thus $f$ is injective.
+
+    $f$ is therefore bijective, and $\N \times \Q$ is thus countable.
+
+\end{proof}
+
+\end{document}

@@ -1,0 +1,39 @@
+\documentclass[12pt, a4paper]{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage[a4paper, portrait, margin=1in]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+\newcommand{\emptyline}{\hfill\break}
+
+\newtheorem{theorem}{Theorem}
+
+% let's begin
+\begin{document}
+
+\noindent\textbf{(Q1)}
+
+\begin{theorem}
+    Let $f\colon A \to B$. Then there exists a subset $C \subseteq B$ such that
+    $f\colon A \to C$ is bijective.
+\end{theorem}
+
+\begin{proof}
+    In order to prove that $f \colon A \to C$ is bijective, we prove that it is
+    both surjective and injective.
+    
+    Let $C = f(A)$, that is, $C$ is the image of $f$. Thus, $f$ is surjective 
+    on $C$ by construction. Since $f$ is injective on $B$ and $C \subseteq B$ by 
+    definition of function image, $f$ is also injective on $C$.
+
+    Since $f \colon A \to C$ is both surjective and injective, it is therefore
+    bijective.
+\end{proof}
+
+\end{document}
